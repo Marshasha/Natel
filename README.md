@@ -1,2 +1,1 @@
-# OOP2019
-Object Oriented Programming
+Let there be rock!
