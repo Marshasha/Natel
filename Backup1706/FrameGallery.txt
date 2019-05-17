@@ -1,0 +1,13 @@
+package com.company;
+
+import java.awt.*;
+
+public class FrameGallery extends FrameModel {
+
+    public FrameGallery(){
+        super();
+
+        panelInside.setBackground(Color.GREEN);
+
+    }
+}
