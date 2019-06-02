@@ -1,0 +1,210 @@
+
+
+
+
+import javax.swing.*;
+
+import java.awt.*;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+
+
+public class FrameContacts extends FrameModel implements PanelMulti {
+
+
+
+
+
+    //private FrameContactsEdit fce = new FrameContactsEdit();
+
+
+
+
+
+    private JButton buttonNewCon = new JButton("Nouveau contact");
+
+    protected JButton buttonEdiCon = new JButton("Editer");
+
+    protected JButton buttonSupCon = new JButton("Supprimer");
+
+
+
+    private JList listCon = new JList();
+
+    private JScrollPane scrollList = new JScrollPane(listCon);
+
+
+
+
+
+   // private JLabel imageVideCon = new JLabel(new ImageIcon("user.png"));
+
+
+
+    protected JPanel panelList = new JPanel();
+
+    protected JPanel panelImage = new JPanel();
+
+    protected JPanel panelMenu = new JPanel();
+
+
+
+
+
+
+
+
+
+    public FrameContacts(){
+
+
+
+        super();
+
+
+
+        miseEnPlaceCont();
+
+
+
+        buttonNewCon.addActionListener(new ContactsEdit(1));
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+    public void miseEnPlaceCont(){
+
+
+
+        panelImage.setBackground(Color.PINK);
+
+        panelImage.setBounds(0,0,401,326);
+
+        panelImage.setOpaque(true);
+
+        panelImage.setLayout(null);
+
+
+
+    //    panelImage.add(imageVideCon);
+
+     //   imageVideCon.setBounds(140,60,128,128);
+
+
+
+
+
+        panelList.setBackground(Color.CYAN);
+
+        panelList.setBounds(0,326,401,400);
+
+        panelList.setOpaque(true);
+
+        panelList.setLayout(null);
+
+
+
+
+
+        panelMenu.setBackground(Color.LIGHT_GRAY);
+
+        panelMenu.setBounds(0,726,401,41);
+
+        panelMenu.setOpaque(true);
+
+        panelMenu.setLayout(null);
+
+
+
+        panelMenu.add(buttonNewCon);
+
+        panelMenu.add(buttonEdiCon);
+
+        panelMenu.add(buttonSupCon);
+
+        buttonNewCon.setBounds(0,0,140,40);
+
+        buttonEdiCon.setBounds(141,0,121,40);
+
+        buttonSupCon.setBounds(262,0,139,40);
+
+
+
+
+
+        panelInside.add(panelList);
+
+        panelInside.add(panelImage);
+
+        panelInside.add(panelMenu);
+
+
+
+    }
+
+
+
+    public JButton getButtonNewCon() {
+
+        return buttonNewCon;
+
+    }
+
+
+
+    public void setButtonNewCon(JButton buttonNewCon) {
+
+        this.buttonNewCon = buttonNewCon;
+
+    }
+
+
+
+
+
+
+
+    class ContactsEdit implements ActionListener{
+
+
+
+
+
+        int i = 0;
+
+        public ContactsEdit(int indic){
+
+            i = indic;
+
+        }
+
+
+
+        @Override
+
+        public void actionPerformed(ActionEvent e) {
+
+
+            fce.setVisible(true);
+
+
+
+        }
+
+    }
+
+
+
+}
