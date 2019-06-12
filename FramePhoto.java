@@ -1,6 +1,15 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -10,16 +19,7 @@ import javax.swing.JPanel;
 
 public class FramePhoto extends FrameModel {
 	
-	private JLabel labelPhoto = new JLabel();
-	
-	/*
-	private JButton next = new JButton(">");
-	private JButton previous = new JButton("<");
-	*/
-	
-	private JButton back = new JButton("back to Gallery");
-	private JButton delete = new JButton("delete");
-
+	private JLabel labelPhotoGrand = new JLabel();
 	
 	public FramePhoto(){
 		
@@ -29,45 +29,34 @@ public class FramePhoto extends FrameModel {
 					
 	}
 	
+	/**
+	 * 
+	 * @param imagePath la variable reçu de la methode action(String imagePath)
+	 * @param labelPhotoGrand la label pour afficher une photo
+	 * @param imageIcon obtient String imagePath
+	 * @param image obtient image qui se trouve dans imagePath
+	 * 
+	 */
+	
 	public void setPhoto(String imagePath){
 		
-		labelPhoto.setVisible(false);
-
+		labelPhotoGrand.setVisible(false);
+		
 		ImageIcon imageIcon = new ImageIcon(imagePath);
 		Image image = imageIcon.getImage();
 		image = image.getScaledInstance(350, 450, Image.SCALE_SMOOTH);
 		imageIcon = new ImageIcon(image);
 		
-		labelPhoto = new JLabel(imageIcon);
-		labelPhoto.setOpaque(true);
-	    labelPhoto.setBounds(20, 100, 350, 350);
-	    panelInside.add(labelPhoto);
-	    
+		labelPhotoGrand = new JLabel(imageIcon);
+		labelPhotoGrand.setOpaque(true);
+	    labelPhotoGrand.setBounds(20, 100, 350, 350);
+	    panelInside.add(labelPhotoGrand);	   
 	}
-	
+		
 	
 	public void miseEnPlacePhoto(){
 		
-		panelInside.setBackground(Color.ORANGE);
-		
-		/*
-		next.setBounds(310, 5, 60, 60);
-		next.setOpaque(true);
-		panelInside.add(next, BorderLayout.EAST);
-		
-		previous.setBounds(5, 5, 60, 60);
-		previous.setOpaque(true);
-		panelInside.add(previous, BorderLayout.WEST);
-		*/
-		
-		back.setBounds(130, 5, 130, 60);
-		back.setOpaque(true);
-		panelInside.add(back, BorderLayout.NORTH);
-		
-		delete.setBounds(130, 600, 80, 40);
-		delete.setOpaque(true);
-		panelInside.add(delete, BorderLayout.SOUTH);
-	        
+		panelInside.setBackground(Color.CYAN);	        
 
 	}
 
